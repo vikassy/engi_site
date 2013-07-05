@@ -8,12 +8,12 @@
 //  document.location="http://www.engineer.org.in/2012";
     </script>
     <!-- Styles -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="css/theme.css" rel="stylesheet">
-    <link href="css/index.css" rel="stylesheet" media="screen">
-    <link href="css/bootstrap-overrides.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="css/animate.css" media="screen, projection">    
+    <link href="assets/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/theme.css" rel="stylesheet">
+    <link href="assets/index.css" rel="stylesheet" media="screen">
+    <link href="assets/bootstrap-overrides.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="assets/animate.css" media="screen, projection">    
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -57,14 +57,14 @@
 
             For the backgrounds, you can combine from the bgs folder :D
         -->
-        <article class="slide" id="showcasing" style="background: url('images/engi4.jpg') repeat-x top center;background-position: 50% 30%;">
+        <article class="slide" id="showcasing" style="background: url('/assets/engi4.jpg') repeat-x top center;background-position: 50% 30%;">
             <!-- img class="asset left-30 sp600 t120 z1" src="img/slides/scene1/macbook.png" /> -->
             <div class="info">
                 <h2>Engineer</h2>
                 <h3>2013</h3>
             </div>
         </article>
-        <article class="slide" id="ideas" style="background: url('images/led.jpg') repeat-x top center;">
+        <article class="slide" id="ideas" style="background: url('/assets/led.jpg') repeat-x top center;">
             <div class="info">
                 <h2>We love to turn ideas into beautiful things.</h2>
             </div>
@@ -72,7 +72,7 @@
             <!-- img class="asset left-210 sp600 t213 z2" src="img/slides/scene2/middle.png" /> -->
             <!-- img class="asset left60 sp600 t260 z1" src="img/slides/scene2/right.png" /> -->
         </article>
-        <article class="slide" id="tour" style="background: url('images/bot2.jpg') top center;background-position: 60% 100%">
+        <article class="slide" id="tour" style="background: url('/assets/bot2.jpg') top center;background-position: 60% 100%">
             <!-- img class="asset left-472 sp650 t210 z3" src="img/slides/scene3/ipad.png" /> -->
             <!-- img class="asset left-365 sp600 t270 z4" src="img/slides/scene3/iphone.png" /> -->
             <!-- img class="asset left-350 sp450 t135 z2" src="img/slides/scene3/desktop.png" /> -->
@@ -82,7 +82,7 @@
                 <!-- <a href="features.html">TOUR THE PRODUCT</a> -->
             </div>
         </article>
-        <article class="slide" id="responsive" style="background: url('images/pen.jpg') repeat-x top center;background-position: 60% 100%">
+        <article class="slide" id="responsive" style="background: url('/assets/pen.jpg') repeat-x top center;background-position: 60% 100%">
             <!-- img class="asset left-472 sp600 t120 z3" src="img/slides/scene4/html5.png" /> -->
             <!-- img class="asset left-190 sp500 t120 z2" src="img/slides/scene4/css3.png" /> -->
             <!-- <div class="info">
@@ -92,7 +92,7 @@
                 </h2>                
             </div> -->
         </article>
-        <article class="slide" id="lantern" style="background: url('images/lantern.jpg') repeat-x top center;background-position: 50% 10%;">
+        <article class="slide" id="lantern" style="background: url('/assets/lantern.jpg') repeat-x top center;background-position: 50% 10%;">
             <!-- img class="asset left-472 sp600 t120 z3" src="img/slides/scene4/html5.png" /> -->
             <!-- img class="asset left-190 sp500 t120 z2" src="img/slides/scene4/css3.png" /> -->
             <!-- <div class="info">
@@ -102,7 +102,7 @@
                 </h2>                
             </div> -->
         </article>   
-        <article class="slide" id="demo" style="background: url('images/demo.jpg') repeat-x top center;background-position: 50% 55%;">
+        <article class="slide" id="demo" style="background: url('/assets/demo.jpg') repeat-x top center;background-position: 50% 55%;">
             <!-- img class="asset left-472 sp600 t120 z3" src="img/slides/scene4/html5.png" /> -->
             <!-- img class="asset left-190 sp500 t120 z2" src="img/slides/scene4/css3.png" /> -->
             <!-- <div class="info">
@@ -112,7 +112,7 @@
                 </h2>                
             </div> -->
         </article>
-        <article class="slide" id="fall" style="background: url('images/fall.jpg') repeat-x top center;background-position: 50% 30%;">
+        <article class="slide" id="fall" style="background: url('/assets/fall.jpg') repeat-x top center;background-position: 50% 30%;">
             <!-- img class="asset left-472 sp600 t120 z3" src="img/slides/scene4/html5.png" /> -->
             <!-- img class="asset left-190 sp500 t120 z2" src="img/slides/scene4/css3.png" /> -->
             <!-- <div class="info">
@@ -122,7 +122,7 @@
                 </h2>                
             </div> -->
         </article>
-        <article class="slide" id="car" style="background: url('images/car2.jpg') repeat-x top center;background-position: 50% 75%;">
+        <article class="slide" id="car" style="background: url('/assets/car2.jpg') repeat-x top center;background-position: 50% 75%;">
             <!-- img class="asset left-472 sp600 t120 z3" src="img/slides/scene4/html5.png" /> -->
             <!-- img class="asset left-190 sp500 t120 z2" src="img/slides/scene4/css3.png" /> -->
             <!-- <div class="info">
@@ -168,7 +168,7 @@
                         <div class="img_box">
                             <a data-toggle="modal" href="#<%= f.name %>">
                                 <!-- <img src="img/service1.png"> -->
-                                <img src="images/<%= f.name %>.jpg" width="258" height="164">
+                                <img src="/assets/<%= f.name %>.jpg" width="258" height="164">
                                 <span class="circle"> 
                                         <span class="plus">+</span>
                                 </span>
@@ -207,7 +207,7 @@ Guest speakers have included Richard Stallman, Sam Pitroda, Dr. Devi Shetty, Sir
     <td>
             <h2>Previous Sponsors</h2>
         <hr />
-        <img src="images/sponsor.jpg" style="box-shadow: 0px 0px 5px 1px black;"/>
+        <img src="/assets/sponsor.jpg" style="box-shadow: 0px 0px 5px 1px black;"/>
     </td>
     </tr>
     </table>
@@ -329,10 +329,10 @@ Guest speakers have included Richard Stallman, Sam Pitroda, Dr. Devi Shetty, Sir
     </footer>
 
     <!-- Scripts -->
-    <script src="js/jquery-latest.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/theme.js"></script>
-    <script src="js/index-slider.js"></script>  
+    <script src="/assets/jquery-latest.js"></script>
+    <script src="/assets/bootstrap.min.js"></script>
+    <script src="/assets/theme.js"></script>
+    <script src="/assets/index-slider.js"></script>  
     <script>
     //To send the contact
     $("#new_contact").submit(function(event){
