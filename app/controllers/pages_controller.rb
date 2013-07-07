@@ -1,4 +1,12 @@
 class PagesController < ApplicationController
+  before_filter :set_request_variable
+
+  def set_request_variable
+    #  set @current_account from session data here
+    Subscribe.request = request
+  end
+
+
   def home
     @events = Event.all
     @contact = Contact.new
@@ -74,8 +82,6 @@ class PagesController < ApplicationController
     @subscribe.email = params[:subscribe][:email].to_s
     @subscribe.activation_string = activation_string
     if @subscribe.save
-      link = request.host+"/subscribe/activate?email="+@subscribe.email+"&token="+@subscribe.activation_string
-      ContactMailer.send_confirmation_email(@subscribe.email,link).deliver
       status = 200
     else
       status = 403

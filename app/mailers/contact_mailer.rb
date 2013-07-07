@@ -10,7 +10,10 @@ class ContactMailer < ActionMailer::Base
 
   def send_confirmation_email(email,activation_link)
     @link = activation_link
-    mail(to: email, subject: "Confirm your Subscription")
+    puts "-"*100
+    puts email
+    puts '-'*100
+    mail(to: "<#{email}>", subject: "Confirm your Subscription")
   end
 
 end

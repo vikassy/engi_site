@@ -2,7 +2,7 @@ require "#{Rails.root}/lib/development_mail_interceptor"
 ActionMailer::Base.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
-  :domain               => "engi1234.herokuapp.com",
+  :domain               => "localhost:3000",
   :user_name            => "vikasyaligar.it",
   :password             => "v1kant524",
   :authentication       => "plain",

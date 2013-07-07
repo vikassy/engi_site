@@ -18,6 +18,8 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="/assets/turn.min.js"></script>
 </head>
 <body class="pull_top">
     <div class="navbar transparent navbar-inverse navbar-fixed-top">
@@ -137,6 +139,7 @@
         <div class="container">
             <div class="section_header">
                 <h3>Engineer events</h3>
+                <div style="background-image:url(/assets/01.jpg);"></div>
             </div>            
             <div class="row feature_wrapper">
                 <!-- Features Row -->
@@ -146,17 +149,65 @@
                     <!-- Modal -->
                         <div id="<%= f.name %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                 <div class="modal-header">                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                  <h2 id="myModalLabel"><%= f.name.capitalize %></h2>
-                                </div>
-                                <div class="modal-body">
+                                  <h2 id="myModalLabel"><%= f.name.capitalize %></h2> 
+                                </div><!-- 
+                                <div id="left_modal" style="width: 100px;display: inline-block">
+                                    
+                                </div> -->
+                                <table>
+                                    <tr>
+                                        <td >
+              <!--                               <ul class="nav nav-list bs-docs-sidenav affix">
+          <li class="active"><a href="#typography"><i class="icon-chevron-right"></i> Typography</a></li>
+          <li class=""><a href="#code"><i class="icon-chevron-right"></i> Code</a></li>
+          <li class=""><a href="#tables"><i class="icon-chevron-right"></i> Tables</a></li>
+          <li class=""><a href="#forms"><i class="icon-chevron-right"></i> Forms</a></li>
+          <li><a href="#buttons"><i class="icon-chevron-right"></i> Buttons</a></li>
+          <li><a href="#images"><i class="icon-chevron-right"></i> Images</a></li>
+          <li><a href="#icons"><i class="icon-chevron-right"></i> Icons by Glyphicons</a></li>
+        </ul>  --> 
+                                    <ul class="nav nav-list bs-docs-sidenav affix">
+                                    <% f.allevents.each do |g| %>
+                                        <li class=""><i class="icon-chevron-right"></i>
+                                            <a href="javascript:null" id="<%= g.name.gsub(/[^0-9A-Za-z]/, '')+f.name.gsub(/\s+/, "")+'click' %>"><%= g.name %>
+                                            </a>
+                                        </li>
+                                    <% end %>
+                                    </ul>
+                                </td>
+                                </td>
+                                <td>
+                            <div id="<%= f.name+'sider' %>" style="display: inline-block;width: 400px;overflow: scroll;">
+                                <% f.allevents.each do |g| %>
+                                    <div style="background-color: white;color: black;" > <h3><%= g.name %></h3> 
+                                        <br>
+                                        <%= simple_format(g.description) %>
+                                    </div>
+                                <% end %>
+                            </div>
+                        </td>
+                            </tr>
+                            </table>
+                            <script type="text/javascript">
+                                $("#<%= f.name+'sider' %>").turn({
+                                    display: 'single',
+                                    width: 400,
+                                    height: 300,
+                                    autoCenter: true
+                                });
+                                <% f.allevents.each do |g| %>
+                                        $("#<%= g.name.gsub(/[^0-9A-Za-z]/, '')+f.name.gsub(/\s+/, "")+'click' %>").click(function() {
+                                            // alert('sdkjbsdifjb');
+                                            $("#<%= f.name+'sider' %>").turn("page", <%= f.allevents.index(g)+1 %>);
+                                        });
+                                <% end %>
+                            </script>
+                                <!-- <div class="modal-body">
                                   <h2>Events: </h2>
                                   <p>
-                                    <% f.allevents.each do |g| %>
-                                        <h3><%= g.name %></h3><br />
-                                        <p><%= g.description %>
-                                    <% end %>    
+                                    
                                   </p>
-                                </div>
+                                </div> -->
                             <div class="modal-footer">
                                 <button class="btn" data-dismiss="modal">Close</button>
                             </div>
@@ -323,27 +374,27 @@ Guest speakers have included Richard Stallman, Sam Pitroda, Dr. Devi Shetty, Sir
             </div>
         </div>
     </footer>
-
-    <!-- Scripts -->
-    <script src="/assets/jquery-latest.js"></script>
-    <script src="/assets/bootstrap.min.js"></script>
+    <script src="/assets/index-slider.js"></script>
     <script src="/assets/theme.js"></script>
-    <script src="/assets/index-slider.js"></script>  
+    <script src="/assets/bootstrap.min.js"></script>
     <script>
     //To send the contact
     $("#new_contact").submit(function(event){
         // alert('in');
         var value = $(this).serialize();
         event.preventDefault();
+
+        $('input[type="submit"]').attr('disabled','disabled');
+        $('#message_form').html('Submitting');
+        $('#message_form').removeClass("alert alert-error alert-success alert-info");
+        $('#message_form').addClass('alert alert-info');
         request = $.ajax({
             url: "/contacts.json",
             type: "post",
             data: value ,
-            beforeSubmit: function(){
-                $('input[type="submit"]').attr('disabled','disabled');
-            },
             success: function(){
               // alert("success");
+               $('#message_form').removeClass("alert alert-error alert-success alert-info");
                $("#message_form").html('Submitted successfully');
                // $('#message').css('class','alert alert-success')
                $("#message_form").addClass("alert alert-success");
@@ -351,6 +402,7 @@ Guest speakers have included Richard Stallman, Sam Pitroda, Dr. Devi Shetty, Sir
             },
             error:function(){
               // alert("failure");
+              $('#message_form').removeClass("alert alert-error alert-success alert-info");
               $("#message_form").html('There was some error while submitting');
               $('#message_form').addClass("alert alert-error");
               $('input[type="submit"]').removeAttr('disabled');
@@ -362,24 +414,26 @@ Guest speakers have included Richard Stallman, Sam Pitroda, Dr. Devi Shetty, Sir
         // alert('in');
         var value = $(this).serialize();
         event.preventDefault();
+        $('input[type="submit"]').attr('disabled','disabled');
+        $('#subscribe_form').html('Submitting');
+        $('#subscribe_form').removeClass("alert alert-error alert-success alert-info");
+        $('#subscribe_form').addClass('alert alert-info');
         request = $.ajax({
             url: "/subscribes.json",
             type: "post",
             data: value ,
-            beforeSubmit: function(){
-                $('input[type="submit"]').attr('disabled','disabled');
-                $('#subscribe_form').html(' ');
-            },
             success: function(){
               // alert("success");
                $("#subscribe_form").html('Submitted successfully');
                // $('#message').css('class','alert alert-success')
+               $('#subscribe_form').removeClass("alert alert-error alert-success alert-info");
                $("#subscribe_form").addClass("alert alert-success");
                $('input[type="submit"]').removeAttr('disabled');
             },
             error:function(){
               // alert("failure");
               $("#subscribe_form").html('There was some error while submitting');
+              $('#subscribe_form').removeClass("alert alert-error alert-success alert-info");
               $('#subscribe_form').addClass("alert alert-error");
               $('input[type="submit"]').removeAttr('disabled');
               // $('#message').css('class','alert alert-error')
@@ -388,5 +442,4 @@ Guest speakers have included Richard Stallman, Sam Pitroda, Dr. Devi Shetty, Sir
     });
 // $('input[type="submit"]').removeAttr('disabled');
     </script>
-
 </body></html>
