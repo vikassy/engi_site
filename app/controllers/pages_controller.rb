@@ -68,19 +68,24 @@ class PagesController < ApplicationController
 
   def subscribes
     @subscribe = Subscribe.new
+    puts "-"*100
+    puts params
+    puts "-"*100
     @subscribe.email = params[:subscribe][:email].to_s
     @subscribe.activation_string = activation_string
     if @subscribe.save
-      link = request.host+"/subscribe/activate?email="+email+"&token="+activatation_string
+      link = request.host+"/subscribe/activate?email="+@subscribe.email+"&token="+@subscribe.activation_string
       ContactMailer.send_confirmation_email(@subscribe.email,link).deliver
       status = 200
     else
       status = 403
     end
+    respond_to do |format|  
     format.html { redirect_to root_path }  
       format.json {            
         render status: status , json: @subscribe.errors.messages
       }  
+    end
     # redirect_to root_path
   end
 

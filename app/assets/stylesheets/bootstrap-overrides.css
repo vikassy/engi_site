@@ -21,6 +21,10 @@ margin: 8px 10px 0 0;
 margin-right: 50px;
 margin-left: 10px;
 }
+.nav-collapse.collapse {
+    height: auto !important;
+    overflow: hidden !important;
+}
 .pull-right{
   margin-right: 100px;
   margin-top: -20px;

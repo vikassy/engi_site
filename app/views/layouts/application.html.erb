@@ -22,7 +22,7 @@
 <body class="pull_top">
     <div class="navbar transparent navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container" style="margin-left: 10px;width: auto">
+        <div class="container">
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -30,24 +30,12 @@
             </a>
             <a class="brand" href="#"><img src="/assets/logo.png" width="50px" /><strong>ENGINEER 2013 COMING SOON!!</strong></a>
             <div class="nav-collapse collapse">
-                <ul class="nav pull">
-                    <li><a href="index.html" class="active">ENGINEER 2012</a></li>
+                <ul class="nav pull-right">
+                    <li><a href="index.html">ENGINEER 2012</a></li>
                     <li><a href="Marketing_Brochure.pdf" >BROCHURE</a></li>
                     <li><a href="http://blog.engineer.org.in" >BLOG</a></li>
             <li><a href="http://beachsideblues.com" >TheBeachSideBlues</a></li>
             <li><a href="http://nitk.ac.in">NITK, Surathkal</a></li>
-                </ul>
-                <ul class="nav pull-right">
-                    <li><%= form_for(@subscribe) do |f| %></li>
-                    <!-- <li><form action="/subscribes" method="post"></li> -->
-                    <li style="width: 150px;"><%= f.text_field :email , html: {width: "100px" , placeholder: "Email Id"} %></li> 
-            <!-- <li><input name="email" type="email" placeholder="Email to Subscribe" /></li>  -->
-            <!-- <li><input name="commit" type="submit" value="Submit" id="button" /></li> -->
-                    <li><%= f.submit "Subscribe" , id: "button" %></li> 
-                    <% end %>
-                    <br />
-                <li id="subscribe_form"></li>
-            </form>
                 </ul>
             </div>
         </div>
@@ -73,12 +61,12 @@
             <!-- img class="asset left-30 sp600 t120 z1" src="img/slides/scene1/macbook.png" /> -->
             <div class="info">
                 <h2>Engineer</h2>
-                <h3>2013</h3>
+                <h3 style="color: white;">2013</h3>
             </div>
         </article>
         <article class="slide" id="ideas" style="background: url('/assets/led.jpg') repeat-x top center;">
             <div class="info">
-                <h2>We love to turn ideas into beautiful things.</h2>
+                <h2 style="width: 200px;margin-left: 250px;margin-top: 50px;">Building in LED's Engineer</h2>
             </div>
             <!-- img class="asset left-480 sp600 t260 z1" src="img/slides/scene2/left.png" /> -->
             <!-- img class="asset left-210 sp600 t213 z2" src="img/slides/scene2/middle.png" /> -->
@@ -97,52 +85,50 @@
         <article class="slide" id="responsive" style="background: url('/assets/pen.jpg') repeat-x top center;background-position: 60% 100%">
             <!-- img class="asset left-472 sp600 t120 z3" src="img/slides/scene4/html5.png" /> -->
             <!-- img class="asset left-190 sp500 t120 z2" src="img/slides/scene4/css3.png" /> -->
-            <!-- <div class="info">
-                <h2>
-                    Responsive <strong>HTML5 & CSS3</strong>
-                    Theme
+            <div class="info">
+                <h2 style="margin-left: 50px;margin-top: 100px;">
+                    Creating new things <strong>Engineer</strong>
                 </h2>                
-            </div> -->
+            </div>
         </article>
         <article class="slide" id="lantern" style="background: url('/assets/lantern.jpg') repeat-x top center;background-position: 50% 10%;">
-            <!-- img class="asset left-472 sp600 t120 z3" src="img/slides/scene4/html5.png" /> -->
+            <!--     img class="asset left-472 sp600 t120 z3" src="img/slides/scene4/html5.png" /> -->
             <!-- img class="asset left-190 sp500 t120 z2" src="img/slides/scene4/css3.png" /> -->
-            <!-- <div class="info">
-                <h2>
+            <div class="info">
+                <h2 style="margin-left: 100px;margin-top: 300px;color: white">
                     Latern @<strong>Engineer</strong>
-                    Theme
                 </h2>                
-            </div> -->
+            </div>
         </article>   
         <article class="slide" id="demo" style="background: url('/assets/demo.jpg') repeat-x top center;background-position: 50% 55%;">
             <!-- img class="asset left-472 sp600 t120 z3" src="img/slides/scene4/html5.png" /> -->
             <!-- img class="asset left-190 sp500 t120 z2" src="img/slides/scene4/css3.png" /> -->
-            <!-- <div class="info">
+            <div class="info">
                 <h2>
-                    Responsive <strong>HTML5 & CSS3</strong>
-                    Theme
+                    <!-- Responsive <strong>HTML5 & CSS3</strong>
+                    Theme -->
                 </h2>                
-            </div> -->
+            </div>
         </article>
         <article class="slide" id="fall" style="background: url('/assets/fall.jpg') repeat-x top center;background-position: 50% 30%;">
             <!-- img class="asset left-472 sp600 t120 z3" src="img/slides/scene4/html5.png" /> -->
             <!-- img class="asset left-190 sp500 t120 z2" src="img/slides/scene4/css3.png" /> -->
-            <!-- <div class="info">
+            <div class="info">
                 <h2>
-                    Responsive <strong>HTML5 & CSS3</strong>
-                    Theme
+                    <!-- Responsive <strong>HTML5 & CSS3</strong>
+                    Theme -->
                 </h2>                
-            </div> -->
+            </div>
         </article>
         <article class="slide" id="car" style="background: url('/assets/car2.jpg') repeat-x top center;background-position: 50% 75%;">
             <!-- img class="asset left-472 sp600 t120 z3" src="img/slides/scene4/html5.png" /> -->
             <!-- img class="asset left-190 sp500 t120 z2" src="img/slides/scene4/css3.png" /> -->
-            <!-- <div class="info">
+            <div class="info">
                 <h2>
-                    Responsive <strong>HTML5 & CSS3</strong>
-                    Theme
+                    <!-- Responsive <strong>HTML5 & CSS3</strong>
+                    Theme -->
                 </h2>                
-            </div> -->
+            </div>
         </article>
    </section>
 
@@ -180,7 +166,7 @@
                         <div class="img_box">
                             <a data-toggle="modal" href="#<%= f.name %>">
                                 <!-- <img src="img/service1.png"> -->
-                                <img src="/assets/<%= f.name %>.jpg" width="258" height="164">
+                                <img src="/assets/<%= f.name %>.jpg" width="258" height="164" />
                                 <span class="circle"> 
                                         <span class="plus">+</span>
                                 </span>
@@ -203,7 +189,6 @@
                     </div>
                 </div>
             </div>
-
         <div class="container">
         <table class="table">
         <tr>
@@ -229,22 +214,21 @@ Guest speakers have included Richard Stallman, Sam Pitroda, Dr. Devi Shetty, Sir
     <footer id="footer">
         <div class="container">
             <div class="row sections">
-                <div class="span4 recent_posts">
-                    <h3 class="footer_header">
-                       Links 
+                <div class="span4 recent_posts ">
+                    <h3 class="footer_header ">
+                       Subscribe
                     </h3>
-                    <div class="post">
-                        <a href="blogpost.html">
-                            <img src="/assets/recent_post1.png" class="img-circle">
-                        </a>
-                        <div class="date">
-                            Wed, 12 Dec
-                        </div>
-                        <a href="blogpost.html" class="title">
-                            Randomised words which don't look embarrasing hidden.
-                        </a>
+                    <div id="subscribe_form"></div>      
+                    <div class="post contact">
+                        <%= form_for(@subscribe) do |f| %>
+                    <!-- <form action="/subscribes" method="post"> -->
+                    <%= f.text_field :email ,placeholder: "Email Id" %> 
+            <!-- <input name="email" type="email" placeholder="Email to Subscribe" />  -->
+            <!-- <input name="commit" type="submit" value="Submit" id="button" /> -->
+                    <%= f.submit "Subscribe" %> 
+                    <% end %>
                     </div>
-                    <div class="post">
+                    <!-- <div class="post">
                         <a href="blogpost.html">
                             <img src="/assets/recent_post2.png" class="img-circle">
                         </a>
@@ -254,7 +238,7 @@ Guest speakers have included Richard Stallman, Sam Pitroda, Dr. Devi Shetty, Sir
                         <a href="blogpost.html" class="title">
                             Randomised words which don't look embarrasing hidden.
                         </a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="span4 testimonials">
                     <h3 class="footer_header">
@@ -379,12 +363,12 @@ Guest speakers have included Richard Stallman, Sam Pitroda, Dr. Devi Shetty, Sir
         var value = $(this).serialize();
         event.preventDefault();
         request = $.ajax({
-            url: "/subscribe.json",
+            url: "/subscribes.json",
             type: "post",
             data: value ,
             beforeSubmit: function(){
                 $('input[type="submit"]').attr('disabled','disabled');
-                $('#subscribe_form').html('');
+                $('#subscribe_form').html(' ');
             },
             success: function(){
               // alert("success");

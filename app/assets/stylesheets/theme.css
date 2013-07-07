@@ -187,7 +187,7 @@ header {
 /* contact */
 #footer .contact {
 	text-align: right;
-	margin-left: 35px;
+	/*margin-left: 35px;*/
 }
 #footer .contact .footer_header {
 	text-align: left;
