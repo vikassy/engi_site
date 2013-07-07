@@ -2,6 +2,10 @@ WelcomeEngi::Application.routes.draw do
   get "pages/home"
   post "/contacts" => 'pages#contact'
 
+  post "/subscribes" => 'pages#subscribes'
+
+  post "/subscribe/activate" => 'pages#activate'
+
   # root to: 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -10,6 +10,21 @@
     margin-left: -20px;
     *zoom: 1;
   }
+  .navbar .nav {
+position: relative;
+left: 0;
+display: block;
+float: left;
+margin: 8px 10px 0 0;
+}
+.navbar .nav.pull-right {
+margin-right: 50px;
+margin-left: 10px;
+}
+.pull-right{
+  margin-right: 100px;
+  margin-top: -20px;
+}
   .row:before,
   .row:after {
     display: table;

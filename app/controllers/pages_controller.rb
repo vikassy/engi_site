@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
   def home
-  	@events = Event.all
-  	@contact = Contact.new
+    @events = Event.all
+    @contact = Contact.new
+    @subscribe = Subscribe.new
     # require "mechanize"
     # array = %w{chem-events biz-events mba-events civil-events elec-events gen-events astro-events gaming mining-events comp-events mech-events technites sce-events meta-events online-events}
 
@@ -27,21 +28,21 @@ class PagesController < ApplicationController
 
 
 
- #  	array = %w{chem-events biz-events mba-events civil-events elec-events gen-events astro-events gaming mining-events comp-events mech-events technites sce-events meta-events online-events}
+ #    array = %w{chem-events biz-events mba-events civil-events elec-events gen-events astro-events gaming mining-events comp-events mech-events technites sce-events meta-events online-events}
 
-	# agent = Mechanize.new()
+  # agent = Mechanize.new()
 
-	# array.each do |url_name|
-	# 	event = Event.find_by_name(url_name)
-	# 	page = agent.get("http://engineer.org.in/2012/#{url_name}.php")
-	# 	puts "Got page"
-	# 	puts url_name
-	# 	(page/"center"/"a").each do |name|
-	# 		puts name.text
-	# 		alleve = Allevent.create(name: name.text,event_id: event.id)
-	# 	end
+  # array.each do |url_name|
+  #   event = Event.find_by_name(url_name)
+  #   page = agent.get("http://engineer.org.in/2012/#{url_name}.php")
+  #   puts "Got page"
+  #   puts url_name
+  #   (page/"center"/"a").each do |name|
+  #     puts name.text
+  #     alleve = Allevent.create(name: name.text,event_id: event.id)
+  #   end
 
-	# end  	
+  # end   
   end
 
   def contact
@@ -57,12 +58,48 @@ class PagesController < ApplicationController
       status = 403
       message = {message: "Thank you for contacting us"}
     end
-  	respond_to do |format|  
- 	  format.html { redirect_to root_path }  
-  	  format.json {            
-      	render status: status , json: @contact.errors.messages
+    respond_to do |format|  
+    format.html { redirect_to root_path }  
+      format.json {            
+        render status: status , json: @contact.errors.messages
       }  
     end 
   end
 
+  def subscribes
+    @subscribe = Subscribe.new
+    @subscribe.email = params[:subscribe][:email].to_s
+    @subscribe.activation_string = activation_string
+    if @subscribe.save
+      link = request.host+"/subscribe/activate?email="+email+"&token="+activatation_string
+      ContactMailer.send_confirmation_email(@subscribe.email,link).deliver
+      status = 200
+    else
+      status = 403
+    end
+    format.html { redirect_to root_path }  
+      format.json {            
+        render status: status , json: @subscribe.errors.messages
+      }  
+    # redirect_to root_path
+  end
+
+  def activate
+    email = params[:email].to_s
+    token = params[:token].to_s
+    subscribe = Subscribe.find_by_email_and_activation_string(email,token)
+    if subscribe.empty?
+      render status: 404
+    else
+      subscribe.confirmed=true
+      subscribe.save
+      #Make a page about confirmed email
+    end
+  end
+
+private 
+
+  def activation_string
+    (0...8).map{(65+rand(26)).chr}.join
+  end
 end

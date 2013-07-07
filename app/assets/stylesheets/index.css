@@ -1,5 +1,16 @@
 /* Main Slider
 -------------------------------------------------- */
+#button{
+    background-color: #3E3E40;
+    margin-left: 10px;
+border: none;
+color: white;
+border-radius: 4px;
+padding: 5px 20px;
+font-size: 14px;
+font-weight: bold;
+-webkit-transition: background-color .2s linear;
+}
 #feature_slider {
     height:720px;
     height: 550px;

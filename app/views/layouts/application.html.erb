@@ -19,23 +19,35 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
-<body class="pull_top" style="">
+<body class="pull_top">
     <div class="navbar transparent navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container">
+        <div class="container" style="margin-left: 10px;width: auto">
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="#"><strong>ENGINEER 2013 COMING SOON!!</strong></a>
+            <a class="brand" href="#"><img src="/assets/logo.png" width="50px" /><strong>ENGINEER 2013 COMING SOON!!</strong></a>
             <div class="nav-collapse collapse">
-                <ul class="nav pull-right">
+                <ul class="nav pull">
                     <li><a href="index.html" class="active">ENGINEER 2012</a></li>
                     <li><a href="Marketing_Brochure.pdf" >BROCHURE</a></li>
                     <li><a href="http://blog.engineer.org.in" >BLOG</a></li>
             <li><a href="http://beachsideblues.com" >TheBeachSideBlues</a></li>
             <li><a href="http://nitk.ac.in">NITK, Surathkal</a></li>
+                </ul>
+                <ul class="nav pull-right">
+                    <li><%= form_for(@subscribe) do |f| %></li>
+                    <!-- <li><form action="/subscribes" method="post"></li> -->
+                    <li style="width: 150px;"><%= f.text_field :email , html: {width: "100px" , placeholder: "Email Id"} %></li> 
+            <!-- <li><input name="email" type="email" placeholder="Email to Subscribe" /></li>  -->
+            <!-- <li><input name="commit" type="submit" value="Submit" id="button" /></li> -->
+                    <li><%= f.submit "Subscribe" , id: "button" %></li> 
+                    <% end %>
+                    <br />
+                <li id="subscribe_form"></li>
+            </form>
                 </ul>
             </div>
         </div>
@@ -223,7 +235,7 @@ Guest speakers have included Richard Stallman, Sam Pitroda, Dr. Devi Shetty, Sir
                     </h3>
                     <div class="post">
                         <a href="blogpost.html">
-                            <img src="./Business Template_files/recent_post1.png" class="img-circle">
+                            <img src="/assets/recent_post1.png" class="img-circle">
                         </a>
                         <div class="date">
                             Wed, 12 Dec
@@ -234,7 +246,7 @@ Guest speakers have included Richard Stallman, Sam Pitroda, Dr. Devi Shetty, Sir
                     </div>
                     <div class="post">
                         <a href="blogpost.html">
-                            <img src="./Business Template_files/recent_post2.png" class="img-circle">
+                            <img src="/assets/recent_post2.png" class="img-circle">
                         </a>
                         <div class="date">
                             Mon, 12 Dec
@@ -256,7 +268,7 @@ Guest speakers have included Richard Stallman, Sam Pitroda, Dr. Devi Shetty, Sir
                             <span></span>
                         </div>
                         <div class="author">
-                            <img src="./Business Template_files/user-display.png">
+                            <img src="/assets/user-display.png">
                             <div class="name">Convenor name</div>
                             <div class="info">
                                 His details
@@ -357,6 +369,34 @@ Guest speakers have included Richard Stallman, Sam Pitroda, Dr. Devi Shetty, Sir
               // alert("failure");
               $("#message_form").html('There was some error while submitting');
               $('#message_form').addClass("alert alert-error");
+              $('input[type="submit"]').removeAttr('disabled');
+              // $('#message').css('class','alert alert-error')
+            }   
+        }); 
+    });
+    $("#new_subscribe").submit(function(event){
+        // alert('in');
+        var value = $(this).serialize();
+        event.preventDefault();
+        request = $.ajax({
+            url: "/subscribe.json",
+            type: "post",
+            data: value ,
+            beforeSubmit: function(){
+                $('input[type="submit"]').attr('disabled','disabled');
+                $('#subscribe_form').html('');
+            },
+            success: function(){
+              // alert("success");
+               $("#subscribe_form").html('Submitted successfully');
+               // $('#message').css('class','alert alert-success')
+               $("#subscribe_form").addClass("alert alert-success");
+               $('input[type="submit"]').removeAttr('disabled');
+            },
+            error:function(){
+              // alert("failure");
+              $("#subscribe_form").html('There was some error while submitting');
+              $('#subscribe_form').addClass("alert alert-error");
               $('input[type="submit"]').removeAttr('disabled');
               // $('#message').css('class','alert alert-error')
             }   
