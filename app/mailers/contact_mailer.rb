@@ -1,6 +1,6 @@
 class ContactMailer < ActionMailer::Base
   #Change this to something email like => donotreply@engineer.org.in
-  default from: "vikasyaligar.it@gmail.com"
+  default from: "donotreply@engineer.org.in"
 
   def send_contact(contact)
     @contact = contact

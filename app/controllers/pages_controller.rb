@@ -104,6 +104,7 @@ class PagesController < ApplicationController
     else
       subscribe.confirmed=true
       subscribe.save
+      render :file => 'public/confirm.html'
       #Make a page about confirmed email
     end
   end

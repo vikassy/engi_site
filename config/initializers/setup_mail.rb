@@ -1,13 +1,13 @@
+ActionMailer::Base.raise_delivery_errors = true
 require "#{Rails.root}/lib/development_mail_interceptor"
 ActionMailer::Base.smtp_settings = {
-  :address              => "smtp.gmail.com",
-  :port                 => 587,
-  :domain               => "localhost:3000",
-  :user_name            => "vikasyaligar.it",
-  :password             => "",
-  :authentication       => "plain",
+  :address              => "mail.engineer.org.in",
+  :port                 => 26,
+  :domain               => "www.engineer.org.in",
+  :user_name            => "donotreply@engineer.org.in",
+  :authentication       => :login,
   :enable_starttls_auto => true
 }
 
-ActionMailer::Base.default_url_options[:host] = "localhost:3000"
-Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
+ActionMailer::Base.default_url_options[:host] = "www.engineer.org.in"
+# Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?

@@ -30,7 +30,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="#"><img src="/assets/logo.png" width="50px" /><strong>ENGINEER 2013 COMING SOON!!</strong></a>
+            <a class="brand" href="#"><img src="/assets/logo.png" width="50px" /><strong>ENGINEER 2013</strong></a>
             <div class="nav-collapse collapse">
                 <ul class="nav pull-right">
                     <li><a href="index.html">ENGINEER 2012</a></li>
@@ -139,7 +139,6 @@
         <div class="container">
             <div class="section_header">
                 <h3>Engineer events</h3>
-                <div style="background-image:url(/assets/01.jpg);"></div>
             </div>            
             <div class="row feature_wrapper">
                 <!-- Features Row -->
@@ -169,7 +168,7 @@
                                     <ul class="nav nav-list bs-docs-sidenav affix">
                                     <% f.allevents.each do |g| %>
                                         <li class=""><i class="icon-chevron-right"></i>
-                                            <a href="javascript:null" id="<%= g.name.gsub(/[^0-9A-Za-z]/, '')+f.name.gsub(/\s+/, "")+'click' %>"><%= g.name %>
+                                            <a href="javascript:void(0);" id="<%= g.name.gsub(/[^0-9A-Za-z]/, '')+f.name.gsub(/\s+/, "")+'click' %>"><%= g.name %>
                                             </a>
                                         </li>
                                     <% end %>
@@ -226,7 +225,7 @@
                         <div class="text">
                             <h6 style="color: black;"><%= f.name.capitalize %></h6>
                             <p>
-                        
+
                             </p>
                         </div>
                     </div>
@@ -241,25 +240,21 @@
                 </div>
             </div>
         <div class="container">
-        <table class="table">
-        <tr>
-        <td style="width:400px">
-                <h2>Engineer 2013</h2>
-        <hr />
-        <p style="margin: 0;font-size: 16px;line-height: 23px;">
+                <div class="span6" style="width: 400px;">
+                <h2>Engineer2013</h2>
+                <hr />
+                <p style="margin: 0;font-size: 16px;line-height: 23px;">
 Engineer is an annual technical symposium in India organized by <a href="http://nitk.ac.in">NITK Surathkal</a>. The event was started after the amalgamation of many technical festivals held at NITK Surathkal by student clubs. Held for the first time in 2005, it has consistently attracted participants from all over the India.<br /><br>
 In its previous edition, Engineer brought organizations such as CERN, MIT Media and Bell labs while catering to a participation pool of over 6000 students from 150 colleges across 65 countries.<br /><br>
 Guest speakers have included Richard Stallman, Sam Pitroda, Dr. Devi Shetty, Sir Anthony James Leggett, Ankit Fadia and other personalities.
-</p>
-    </td>
-    <td>
-            <h2>Previous Sponsors</h2>
-        <hr />
-        <img src="/assets/sponsor.jpg" style="box-shadow: 0px 0px 5px 1px black;"/>
-    </td>
-    </tr>
-    </table>
-    </div>
+</p>    
+                </div>
+                <div class="span6">
+                        <h2>Previous Sponsers</h2> 
+                        <hr />
+                    <img src="/assets/sponsor.jpg" style="box-shadow: 0px 0px 5px 1px black;"/>
+                </div>
+        </div>
 </div>
     <!-- starts footer -->
     <footer id="footer">
@@ -297,16 +292,33 @@ Guest speakers have included Richard Stallman, Sam Pitroda, Dr. Devi Shetty, Sir
                     </h3>
                     <div class="wrapper">
                         <div class="quote">
-                            <span>“</span>
-                            Email: contactus@engineer.org,in
-                            Address of NITK Surathkal here
-                            <span></span>
                         </div>
                         <div class="author">
-                            <img src="/assets/user-display.png">
-                            <div class="name">Convenor name</div>
+                            <div class="name">Utpal Kant (Convenor)</div>
                             <div class="info">
-                                His details
+                                Ph: 8123309743 <br>
+                                Email: convenor@engineer.org.in
+                            </div>
+                        </div>
+                        <div class="author">
+                            <div class="name">Ankit Kumar (Chief Coordinator)</div>
+                            <div class="info">
+                                Ph: 8123196114 <br>
+                                Email: chiefcoordinator@engineer.org.in
+                            </div>
+                        </div>
+                        <div class="author">
+                            <div class="name">Abhisekh Malali (Secretary)</div>
+                            <div class="info">
+                                Ph: 9480799184 <br>
+                                Email: abhisekh@engineer.org.in
+                            </div>
+                        </div>
+                        <div class="author">
+                            <div class="name">Vishnu Swaroop (Marketing Head)</div>
+                            <div class="info">
+                                Ph: 9986849580 <br>
+                                Email: vishnu@engineer.org.in
                             </div>
                         </div>
                     </div>

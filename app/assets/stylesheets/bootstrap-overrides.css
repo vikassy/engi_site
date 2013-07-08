@@ -4,7 +4,9 @@
   This override is useful when changing the bootstrap files version instead of editing directly on the
   included bootstrap file.
 */
-
+#footer .testimonials .author {
+margin-top: 0px;
+}
 @media (min-width: 1200px) {
   .row {
     margin-left: -20px;
