@@ -5,7 +5,7 @@ class ContactMailer < ActionMailer::Base
   def send_contact(contact)
     @contact = contact
     # attachments["rails.png"] = File.read("#{Rails.root}/public/images/rails.png")
-    mail(:to => "#{contact.name} <#{contact.email}>", :subject => "email from #{contact.name}")
+    mail(:to => "vikasyaligar.it@gmail.com", :subject => "email from #{contact.name}")
   end
 
   def send_confirmation_email(email,activation_link)

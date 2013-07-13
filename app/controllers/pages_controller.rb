@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   before_filter :set_request_variable
 
   def set_request_variable
@@ -99,11 +100,12 @@ class PagesController < ApplicationController
     email = params[:email].to_s
     token = params[:token].to_s
     subscribe = Subscribe.find_by_email_and_activation_string(email,token)
-    if subscribe.empty?
+    if subscribe.nil?
       render status: 404
     else
       subscribe.confirmed=true
       subscribe.save
+      render status: 404
       render :file => 'public/confirm.html'
       #Make a page about confirmed email
     end

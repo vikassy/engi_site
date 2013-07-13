@@ -4,7 +4,7 @@ WelcomeEngi::Application.routes.draw do
 
   post "/subscribes" => 'pages#subscribes'
 
-  post "/subscribe/activate" => 'pages#activate'
+  get "/subscribe/activate" => 'pages#activate'
 
   # root to: 
   # The priority is based upon order of creation: first created -> highest priority.
