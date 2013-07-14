@@ -6,7 +6,7 @@ ActionMailer::Base.smtp_settings = {
   :port                 => 26,
   :domain               => "www.engineer.org.in",
   :user_name            => "donotreply@engineer.org.in",
-  :password 			=> "Engi2013@NiTk",
+  #:password 			=> "",
   :authentication       => :login,
   :enable_starttls_auto => true
 }
